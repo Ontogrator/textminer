@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/PubMedSearch" elementFormDefault="qualified" targetNamespace="http://tempuri.org/PubMedSearch" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Count" type="xs:string" />
+  <xs:element name="RetMax" type="xs:string" />
+  <xs:element name="RetStart" type="xs:string" />
+  <xs:element name="Id" type="xs:string" />
+  <xs:element name="From" type="xs:string" />
+  <xs:element name="To" type="xs:string" />
+  <xs:element name="Term" type="xs:string" />
+  <xs:element name="Field" type="xs:string" />
+  <xs:element name="QueryKey" type="xs:string" />
+  <xs:element name="WebEnv" type="xs:string" />
+  <xs:element name="Explode" type="xs:string" />
+  <xs:element name="OP" type="xs:string" />
+  <xs:element name="IdList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Id" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Translation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="From" />
+        <xs:element ref="To" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TranslationSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Translation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TermSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Term" />
+        <xs:element ref="Field" />
+        <xs:element ref="Count" />
+        <xs:element ref="Explode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TranslationStack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="TermSet" />
+          <xs:element ref="OP" />
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ERROR" type="xs:string" />
+  <xs:element name="OutputMessage" type="xs:string" />
+  <xs:element name="QuotedPhraseNotFound" type="xs:string" />
+  <xs:element name="PhraseIgnored" type="xs:string" />
+  <xs:element name="FieldNotFound" type="xs:string" />
+  <xs:element name="PhraseNotFound" type="xs:string" />
+  <xs:element name="QueryTranslation" type="xs:string" />
+  <xs:element name="ErrorList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PhraseNotFound" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FieldNotFound" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WarningList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PhraseIgnored" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="QuotedPhraseNotFound" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="OutputMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eSearchResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:sequence>
+            <xs:element ref="Count" />
+            <xs:sequence minOccurs="0" maxOccurs="1">
+              <xs:element ref="RetMax" />
+              <xs:element ref="RetStart" />
+              <xs:element minOccurs="0" maxOccurs="1" ref="QueryKey" />
+              <xs:element minOccurs="0" maxOccurs="1" ref="WebEnv" />
+              <xs:element ref="IdList" />
+              <xs:element ref="TranslationSet" />
+              <xs:element minOccurs="0" maxOccurs="1" ref="TranslationStack" />
+              <xs:element ref="QueryTranslation" />
+            </xs:sequence>
+          </xs:sequence>
+          <xs:element ref="ERROR" />
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="1" ref="ErrorList" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="WarningList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

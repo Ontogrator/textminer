@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/PubMed" elementFormDefault="qualified" targetNamespace="http://tempuri.org/PubMed" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--<xs:import namespace="http://tempuri.org/Medline" />-->
+  <xs:include schemaLocation="Medline.xsd" />
+  <xs:element name="PubmedArticleSet">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="PubmedArticle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PubmedArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MedlineCitation" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PubmedData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PubmedData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="History" />
+        <xs:element ref="PublicationStatus" />
+        <xs:element ref="ArticleIdList" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ObjectList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PubMedPubDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Year" />
+        <xs:element ref="Month" />
+        <xs:element ref="Day" />
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element ref="Hour" />
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element ref="Minute" />
+            <xs:element minOccurs="0" maxOccurs="1" ref="Second" />
+          </xs:sequence>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="PubStatus" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="received" />
+            <xs:enumeration value="accepted" />
+            <xs:enumeration value="epublish" />
+            <xs:enumeration value="ppublish" />
+            <xs:enumeration value="revised" />
+            <xs:enumeration value="aheadofprint" />
+            <xs:enumeration value="retracted" />
+            <xs:enumeration value="pmc" />
+            <xs:enumeration value="pmcr" />
+            <xs:enumeration value="pubmed" />
+            <xs:enumeration value="pubmedr" />
+            <xs:enumeration value="premedline" />
+            <xs:enumeration value="medline" />
+            <xs:enumeration value="medliner" />
+            <xs:enumeration value="entrez" />
+            <xs:enumeration value="pmc-release" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublicationStatus" type="xs:string" />
+  <xs:element name="ArticleIdList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="ArticleId" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArticleId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute default="pubmed" name="IdType">
+            <xs:simpleType>
+              <xs:restriction base="xs:NMTOKEN">
+                <xs:enumeration value="doi" />
+                <xs:enumeration value="pii" />
+                <xs:enumeration value="pmcpid" />
+                <xs:enumeration value="pmpid" />
+                <xs:enumeration value="pmc" />
+                <xs:enumeration value="mid" />
+                <xs:enumeration value="sici" />
+                <xs:enumeration value="pubmed" />
+                <xs:enumeration value="medline" />
+                <xs:enumeration value="pmcid" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="History">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="PubMedPubDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="URL">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="lang">
+            <xs:simpleType>
+              <xs:restriction base="xs:NMTOKEN">
+                <xs:enumeration value="AF" />
+                <xs:enumeration value="AR" />
+                <xs:enumeration value="AZ" />
+                <xs:enumeration value="BG" />
+                <xs:enumeration value="CS" />
+                <xs:enumeration value="DA" />
+                <xs:enumeration value="DE" />
+                <xs:enumeration value="EN" />
+                <xs:enumeration value="EL" />
+                <xs:enumeration value="ES" />
+                <xs:enumeration value="FA" />
+                <xs:enumeration value="FI" />
+                <xs:enumeration value="FR" />
+                <xs:enumeration value="HE" />
+                <xs:enumeration value="HU" />
+                <xs:enumeration value="HY" />
+                <xs:enumeration value="IN" />
+                <xs:enumeration value="IS" />
+                <xs:enumeration value="IT" />
+                <xs:enumeration value="IW" />
+                <xs:enumeration value="JA" />
+                <xs:enumeration value="KA" />
+                <xs:enumeration value="KO" />
+                <xs:enumeration value="LT" />
+                <xs:enumeration value="MK" />
+                <xs:enumeration value="ML" />
+                <xs:enumeration value="NL" />
+                <xs:enumeration value="NO" />
+                <xs:enumeration value="PL" />
+                <xs:enumeration value="PT" />
+                <xs:enumeration value="PS" />
+                <xs:enumeration value="RO" />
+                <xs:enumeration value="RU" />
+                <xs:enumeration value="SL" />
+                <xs:enumeration value="SK" />
+                <xs:enumeration value="SQ" />
+                <xs:enumeration value="SR" />
+                <xs:enumeration value="SV" />
+                <xs:enumeration value="SW" />
+                <xs:enumeration value="TH" />
+                <xs:enumeration value="TR" />
+                <xs:enumeration value="UK" />
+                <xs:enumeration value="VI" />
+                <xs:enumeration value="ZH" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="Type">
+            <xs:simpleType>
+              <xs:restriction base="xs:NMTOKEN">
+                <xs:enumeration value="FullText" />
+                <xs:enumeration value="Summary" />
+                <xs:enumeration value="fulltext" />
+                <xs:enumeration value="summary" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObjectList">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="Object" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Object">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Param" />
+      </xs:sequence>
+      <xs:attribute name="Type" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Param">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="Name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Hour" type="xs:string" />
+  <xs:element name="Minute" type="xs:string" />
+  <xs:element name="Second" type="xs:string" />
+</xs:schema>

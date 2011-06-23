@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/Pubget" elementFormDefault="qualified" targetNamespace="http://tempuri.org/Pubget" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="count" type="xs:int" default="0" /> 
+  <xs:element name="articles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="article" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:int" />
+              <xs:element name="title" type="xs:string" />
+              <xs:element name="authors">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="author" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="abstract" type="xs:string" />
+              <xs:element name="journal" type="xs:string" />
+              <xs:element name="issn" type="xs:string" />
+              <xs:element name="volume" type="xs:int" />
+              <xs:element name="issue" type="xs:int" />
+              <xs:element name="start_page" type="xs:int" />
+              <xs:element name="end_page" type="xs:int" />
+              <xs:element name="date" type="xs:string" />
+              <xs:element name="language" type="xs:string" />
+              <xs:element name="mesh_terms">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="mesh_term" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="html" type="xs:string" />
+              <xs:element name="pdf" type="xs:string" />
+              <xs:element name="find_it" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

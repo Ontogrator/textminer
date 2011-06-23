@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webservices.fulltextwebservices/" targetNamespace="http://webservices.fulltextwebservices/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cleanText" type="tns:cleanText" />
+  <xs:element name="cleanTextASCII" type="tns:cleanTextASCII" />
+  <xs:element name="cleanTextASCIIResponse" type="tns:cleanTextASCIIResponse" />
+  <xs:element name="cleanTextResponse" type="tns:cleanTextResponse" />
+  <xs:complexType name="cleanText">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="textStringBytesUTF8" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cleanTextResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cleanedText" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cleanTextASCII">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="textStringBytesUTF8" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cleanTextASCIIResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cleanedTextASCII" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

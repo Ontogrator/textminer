@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/TextMinerService" elementFormDefault="qualified" targetNamespace="http://tempuri.org/TextMinerService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TextMinerService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Settings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Database">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SSH">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Host" type="xs:string" />
+                          <xs:element name="UserID" type="xs:string" />
+                          <xs:element name="Password" type="xs:string" />
+                          <xs:element name="Port" type="xs:int" />
+                          <xs:element name="LocalPort" type="xs:int" />
+                          <xs:element name="ForwardingHost" type="xs:string" />
+                          <xs:element name="RemotePort" type="xs:int" />
+                        </xs:sequence>
+                        <xs:attribute name="Enabled" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ConnectionString" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="LogSearchInformation" type="xs:boolean" />
+              <xs:element name="Processes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Process" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Enabled" type="xs:boolean" />
+                          <xs:element name="Timeout" type="xs:int" />
+                          <xs:element name="PollingInterval" type="xs:int" />
+                        </xs:sequence>
+                        <xs:attribute name="Type" type="ProcessType" use="required" />
+                        <xs:attribute name="PostPollingInterval" type="xs:int" use="optional" />
+                        <xs:attribute name="ResponseTimeout" type="xs:int" use="optional" />
+                        <xs:attribute name="OntogratorTab" type="xs:int" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Miners">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Miner" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Enabled" type="xs:boolean" />
+                          <xs:element name="Uri" type="xs:anyURI" />
+                          <xs:element name="Arguments" type="xs:string" />
+                          <xs:element name="Ontologies">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Ontology" minOccurs="1" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="MatchText" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute name="ResultTextID" type="xs:string" />
+                                              <xs:attribute name="DBTextID" type="xs:string" />
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="ID" type="xs:string" use="required" />
+                                    <xs:attribute name="OntogratorPane" type="xs:int" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Name" type="MinerName" use="required" />
+                        <xs:attribute name="ResponseTimeout" type="xs:int" use="optional" />
+                        <xs:attribute name="RetriesOnError" type="xs:int" use="optional" />
+                        <xs:attribute name="IntervalOnRetry" type="xs:int" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name = "ProcessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unassigned" />
+      <xs:enumeration value="OntologySubsetWorker" />
+      <xs:enumeration value="PubMed" />
+      <xs:enumeration value="Pubget" />
+      <xs:enumeration value="ClinicalTrialsGov" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name = "MinerName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unsupported" />
+      <xs:enumeration value="NCBOAnnotator" />
+      <xs:enumeration value="NERCTerminizer" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

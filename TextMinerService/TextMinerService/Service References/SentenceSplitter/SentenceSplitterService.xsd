@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webservices.fulltextwebservices/" targetNamespace="http://webservices.fulltextwebservices/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="splitIntoSentences" type="tns:splitIntoSentences" />
+  <xs:element name="splitIntoSentencesResponse" type="tns:splitIntoSentencesResponse" />
+  <xs:complexType name="splitIntoSentences">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="textToSplit" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="splitIntoSentencesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sentencesArray" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

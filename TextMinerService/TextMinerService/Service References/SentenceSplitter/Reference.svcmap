@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4ff44506-66b1-44b1-becc-19a1140cc10b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/SentenceSplitterService?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SentenceSplitterService.wsdl" MetadataType="Wsdl" ID="4c0f19cf-b668-4ee0-824a-e4628b60351f" SourceId="1" SourceUrl="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/SentenceSplitterService?wsdl" />
+    <MetadataFile FileName="SentenceSplitterService.xsd" MetadataType="Schema" ID="77256303-c707-4f17-8297-054b19d8b1bd" SourceId="1" SourceUrl="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/SentenceSplitterService?xsd=1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

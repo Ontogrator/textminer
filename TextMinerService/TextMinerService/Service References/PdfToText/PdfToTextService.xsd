@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webservices.fulltextwebservices/" targetNamespace="http://webservices.fulltextwebservices/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="pdfToText" type="tns:pdfToText" />
+  <xs:element name="pdfToTextBase64" type="tns:pdfToTextBase64" />
+  <xs:element name="pdfToTextBase64Response" type="tns:pdfToTextBase64Response" />
+  <xs:element name="pdfToTextResponse" type="tns:pdfToTextResponse" />
+  <xs:complexType name="pdfToText">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pdfFile" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfToTextResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extractedText" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfToTextBase64">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pdfFileBase64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfToTextBase64Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extractedTextBase64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

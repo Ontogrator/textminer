@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<TextMinerService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/TextMinerService">
+  <Settings>
+	<Database>
+		<SSH Enabled="false">
+			<Host>wlnebc1-prod.nwl.ac.uk</Host>
+			<UserID></UserID>
+			<Password></Password>
+			<Port>22</Port>
+			<LocalPort>13306</LocalPort>
+			<ForwardingHost>localhost</ForwardingHost>
+			<RemotePort>3306</RemotePort>
+		</SSH>
+		<ConnectionString>Server=localhost;Database=ontogratorct;User Id=root;Password=;Port=3306</ConnectionString>
+	</Database>
+	<LogSearchInformation>true</LogSearchInformation>
+    <Processes>
+      <Process Type="PubMed" PostPollingInterval="100" OntogratorTab="1">
+        <Enabled>true</Enabled>
+        <Timeout>60000</Timeout>
+        <PollingInterval>5000</PollingInterval>
+      </Process>
+      <Process Type="Pubget" PostPollingInterval="100" OntogratorTab="2">
+        <Enabled>false</Enabled>
+        <Timeout>60000</Timeout>
+        <PollingInterval>5000</PollingInterval>
+      </Process>
+      <Process Type="ClinicalTrialsGov" PostPollingInterval="100" OntogratorTab="3">
+        <Enabled>true</Enabled>
+        <Timeout>60000</Timeout>
+        <PollingInterval>5000</PollingInterval>
+      </Process>
+      <Process Type="OntologySubsetWorker" ResponseTimeout="300000">
+        <Enabled>true</Enabled>
+        <Timeout>60000</Timeout>
+        <PollingInterval>60000</PollingInterval>
+      </Process>
+    </Processes>
+    <Miners>
+      <Miner Name="NCBOAnnotator" ResponseTimeout="300000" RetriesOnError="5" IntervalOnRetry="5000">
+        <Enabled>true</Enabled>
+        <Uri>http://rest.bioontology.org/obs/annotator</Uri>
+        <Arguments>longestOnly=false&amp;wholeWordOnly=true&amp;scored=false&amp;ontologiesToExpand=40402&amp;ontologiesToKeepInResult=40402&amp;textToAnnotate={0}&amp;withDefaultStopWords=true&amp;format=xml&amp;levelMax=0&amp;mappingTypes=null</Arguments>
+        <Ontologies>
+          <Ontology ID="40402" OntogratorPane="2" />
+        </Ontologies>
+      </Miner>
+      <Miner Name="NERCTerminizer" ResponseTimeout="300000" RetriesOnError="5" IntervalOnRetry="5000">
+        <Enabled>true</Enabled>
+        <Uri>http://terminizer.org/terminizerBackEnd/service</Uri>
+        <Arguments>ontology:OBI=true&amp;ontology:FMA=true&amp;sourceText={0}</Arguments>
+        <Ontologies>
+          <Ontology ID="OBI" OntogratorPane="1">
+            <MatchText ResultTextID="OBI:" DBTextID="http://purl.obolibrary.org/obo/OBI_" />
+          </Ontology>
+          <Ontology ID="FMA" OntogratorPane="3">
+            <MatchText ResultTextID="FMA:" DBTextID="http://purl.org/obo/owl/FMA#FMA_" />
+          </Ontology>
+        </Ontologies>
+      </Miner>
+    </Miners>
+  </Settings>
+</TextMinerService>

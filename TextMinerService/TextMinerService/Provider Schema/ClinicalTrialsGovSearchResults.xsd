@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/ClinicalTrialsGovSearchResults" elementFormDefault="qualified" targetNamespace="http://tempuri.org/ClinicalTrialsGovSearchResults" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="search_results">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="query" type="xs:string" />
+        <xs:element name="clinical_study" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="order" type="xs:int" />
+              <xs:element name="score" type="xs:string" />
+              <xs:element name="nct_id" type="xs:string" />
+              <xs:element name="url" type="xs:string" />
+              <xs:element name="title" type="xs:string" />
+              <xs:element name="status">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="open" type="xs:string" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="condition_summary" type="xs:string" />
+              <xs:element name="last_changed" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="count" type="xs:int" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

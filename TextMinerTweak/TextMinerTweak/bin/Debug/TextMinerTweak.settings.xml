@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextMinerTweak>
+  <Settings>
+    <DBConnectionString>Server=localhost;Database=ontogratorct;User Id=prodda;Password=;Port=13306</DBConnectionString>
+    <SSHEnabled>True</SSHEnabled>
+    <SSHHost>ontogrator.org</SSHHost>
+    <SSHUserID>prodda</SSHUserID>
+    <SSHPassword></SSHPassword>
+    <SSHPort>22</SSHPort>
+    <SSHLocalPort>13306</SSHLocalPort>
+    <SSHForwardingHost>localhost</SSHForwardingHost>
+    <SSHRemotePort>3306</SSHRemotePort>
+    <Pane01Filename>D:\Pete\Downloads\OWL\merged-obi.owl</Pane01Filename>
+    <Pane02Filename>D:\Pete\Downloads\OWL\NDfRT_Public_2010.06.07_Inferred.owl</Pane02Filename>
+    <Pane03Filename>D:\Pete\Downloads\OWL\FMA.owl</Pane03Filename>
+    <Pane04Filename>D:\Pete\Downloads\OWL\cellline_v1.0.owl</Pane04Filename>
+  </Settings>
+</TextMinerTweak>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/Terminizer" elementFormDefault="qualified" targetNamespace="http://tempuri.org/Terminizer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="TerminizerResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="OntologyMatches" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="Ontology" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="MatchedTermList" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="Token" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="Cruft" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchedTermList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MatchedTerm" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TokenIndices" type="xs:string" />
+              <xs:element name="OmixedItemID" type="xs:string" />
+              <xs:element name="Accession" type="xs:string" />
+              <xs:element name="Definition" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="index" type="xs:int" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Token">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RawText" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="index" type="xs:int" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ontology" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="longName" type="xs:string" />
+          <xs:attribute name="shortName" type="xs:string" />
+          <xs:attribute name="hits" type="xs:int" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

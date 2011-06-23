@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://webservices.fulltextwebservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SentenceSplitterService" targetNamespace="http://webservices.fulltextwebservices/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/SentenceSplitterService?xsd=1" namespace="http://webservices.fulltextwebservices/" />
+    </xsd:schema>
+  </types>
+  <message name="splitIntoSentences">
+    <part name="parameters" element="tns:splitIntoSentences" />
+  </message>
+  <message name="splitIntoSentencesResponse">
+    <part name="parameters" element="tns:splitIntoSentencesResponse" />
+  </message>
+  <portType name="SentenceSplitter">
+    <operation name="splitIntoSentences">
+      <input message="tns:splitIntoSentences" />
+      <output message="tns:splitIntoSentencesResponse" />
+    </operation>
+  </portType>
+  <binding name="SentenceSplitterPortBinding" type="tns:SentenceSplitter">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="splitIntoSentences">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SentenceSplitterService">
+    <port name="SentenceSplitterPort" binding="tns:SentenceSplitterPortBinding">
+      <soap:address location="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/SentenceSplitterService" />
+    </port>
+  </service>
+</definitions>

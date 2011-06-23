@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="68e13ff3-6873-4732-bfad-17de4a87c168" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/TextCleanerService?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TextCleanerService.xsd" MetadataType="Schema" ID="ad1627a9-3bbc-497b-a53c-2e78433adb86" SourceId="1" SourceUrl="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/TextCleanerService?xsd=1" />
+    <MetadataFile FileName="TextCleanerService.wsdl" MetadataType="Wsdl" ID="b8d36b0b-c486-43c0-b5c4-ec98fc7ee826" SourceId="1" SourceUrl="http://gnode1.mib.man.ac.uk:8080/FullTextWebServices/TextCleanerService?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

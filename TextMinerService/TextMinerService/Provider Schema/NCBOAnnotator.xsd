@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/NCBOAnnotator" elementFormDefault="qualified" targetNamespace="http://tempuri.org/NCBOAnnotator" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="success">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accessedResource" type="xs:string" />
+        <xs:element name="accessDate" type="xs:string" />
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="annotatorResultBean">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="resultID" type="xs:string" />
+                    <xs:element name="dictionary">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:int" />
+                          <xs:element name="name" type="xs:string" />
+                          <xs:element name="dateCreated">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="class" type="xs:string" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="statistics">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="statisticsBean" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="contextName" type="xs:string" />
+                                <xs:element name="nbAnnotation" type="xs:int" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="parameters">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="longestOnly" type="xs:boolean" />
+                          <xs:element name="wholeWordOnly" type="xs:boolean" />
+                          <xs:element name="filterNumber" type="xs:boolean" />
+                          <xs:element name="withDefaultStopWords" type="xs:boolean" />
+                          <xs:element name="isStopWordsCaseSenstive" type="xs:boolean" />
+                          <xs:element name="withSynonyms" type="xs:boolean" />
+                          <xs:element name="minTermSize" type="xs:int" />
+                          <xs:element name="scored" type="xs:boolean" />
+                          <xs:element name="semanticTypes" nillable="true">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="stopWords" nillable="true">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ontologiesToExpand" nillable="true">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ontologiesToKeepInResult" nillable="true">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="isVirtualOntologyId" type="xs:boolean" />
+                          <xs:element name="levelMax" type="xs:int" />
+                          <xs:element name="mappingTypes" nillable="true">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="textToAnnotate" type="xs:string" />
+                          <xs:element name="outputFormat" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="annotations">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="annotationBean" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="score" type="xs:int" />
+                                <xs:element name="concept">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                      <xs:element name="localConceptId" type="xs:string" />
+                                      <xs:element name="localOntologyId" type="xs:string" />
+                                      <xs:element name="isTopLevel" type="xs:int" />
+                                      <xs:element name="fullId" type="xs:string" />
+                                      <xs:element name="preferredName" type="xs:string" />
+                                      <xs:element name="synonyms" nillable="true">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="definitions" nillable="true">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="string" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="semanticTypes">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="semanticTypeBean" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="id" type="xs:string" />
+                                                  <xs:element name="semanticType" type="xs:string" />
+                                                  <xs:element name="description" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="context">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="contextName" type="xs:string" />
+                                      <xs:element name="isDirect" type="xs:boolean" />
+                                      <xs:element name="from" type="xs:int" />
+                                      <xs:element name="to" type="xs:int" />
+                                      <xs:element name="term">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="name" type="xs:string" />
+                                            <xs:element name="localConceptId" type="xs:string" />
+                                            <xs:element name="isPreferred" type="xs:int" />
+                                            <xs:element name="dictionaryId" type="xs:int" />
+                                          </xs:sequence>
+                                          <xs:attribute name="class" type="xs:string" use="optional" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="xs:string" use="optional" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ontologies">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ontologyUsedBean" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="localOntologyId" type="xs:int" />
+                                <xs:element name="name" type="xs:string" />
+                                <xs:element name="version" type="xs:string" />
+                                <xs:element name="virtualOntologyId" type="xs:int" />
+                                <xs:element name="nbAnnotation" type="xs:int" />
+                                <xs:element name="score" type="xs:int" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
